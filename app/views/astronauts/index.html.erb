@@ -1,0 +1,19 @@
+
+<% @astronauts.each do |astronaut| %>
+<ul>
+  <li>Name: <%= astronaut.name %></li>
+  <li>Age: <%= astronaut.age %></li>
+  <li>Job: <%= astronaut.job %></li>
+  <li>Total time in space: <%= astronaut.missions.sum(:time_in_space)%> days</li>
+  <li>Missions: </li>
+  <% astronaut.missions.order(:title).each do |mission| %>
+  <ul>
+    <li>Title: <%= mission.title %></li>
+  </ul>
+  <% end %>
+</ul>
+<% end %>
+
+<ul>
+  <li>Average Age: <%= @average_age %></li>
+</ul>
